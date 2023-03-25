@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/stfrontend/static/css/main.66c6655f.css",
+    "main.js": "/stfrontend/static/js/main.40a809aa.js",
+    "index.html": "/stfrontend/index.html",
+    "main.66c6655f.css.map": "/stfrontend/static/css/main.66c6655f.css.map",
+    "main.40a809aa.js.map": "/stfrontend/static/js/main.40a809aa.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.66c6655f.css",
+    "static/js/main.40a809aa.js"
+  ]
+}
