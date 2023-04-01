@@ -1,1 +1,1 @@
-export const BASEURL = "https://stcurdbackend.onrender.com";
+export const BASEURL = "https://curdbackend.vercel.app";
