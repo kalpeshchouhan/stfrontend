@@ -73,6 +73,7 @@
   background-color: wheat;
   border: none;
   outline: none;
+  color: black;
 }
 .filter > button:hover {
   background-color: wheat;
@@ -318,7 +319,6 @@
   }
   .filter > form {
     width: 98%;
-    
   }
   .filter > form > p {
     font-size: 1rem;
@@ -328,15 +328,15 @@
     height: 2rem;
     padding-left: 0.3rem;
     font-size: 0.7rem;
-   
   }
   .filter > form > button {
     width: 20%;
     height: 2rem;
     font-size: 0.7rem;
-    background-color: rgb(215, 209, 26);
+    background-color: rgb(26, 215, 61);
     color: #ffffff;
     font-weight: bolder;
+    border: none;
   }
   .filter > button {
     width: 20%;

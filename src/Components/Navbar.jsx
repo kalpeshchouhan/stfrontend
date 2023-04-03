@@ -1,13 +1,9 @@
 import React from "react";
 import nv from "./navbar.module.css";
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { NavLink } from "react-router-dom";
+import "./style.css";
 
 function Navbar() {
-  const [selected, setselected] = useState("Studendata");
-  const handleselected = (item) => {
-    setselected(item);
-  };
   return (
     <>
       <div className={nv.maincontainer}>
@@ -18,37 +14,32 @@ function Navbar() {
           <div className={nv.menu}>
             <ul>
               <li>
-                <Link className={nv.textstyle}
-                  style={{
-                    color: selected === "Studendata" ? "#5c5cff" : "gray",
-                  }}
-                  onClick={() => handleselected("Studendata")}
+                <NavLink
+                  exact
                   to="/"
+                  activeClassName="active"
+                  className={nv.textstyle}
                 >
                   StudentData
-                </Link>
+                </NavLink>
               </li>
               <li>
-                <Link className={nv.textstyle}
-                  style={{
-                    color: selected === "Addstudent" ? "#5c5cff" : "gray",
-                  }}
-                  onClick={() => handleselected("Addstudent")}
+                <NavLink
                   to="/form"
+                  activeClassName="active"
+                  className={nv.textstyle}
                 >
-                  AddStudent
-                </Link>
+                  Addstudent
+                </NavLink>
               </li>
               <li>
-                <Link className={nv.textstyle}
-                  style={{
-                    color: selected === " ProjectDocument" ? "#5c5cff" : "gray",
-                  }}
-                  onClick={() => handleselected(" ProjectDocument")}
+                <NavLink
                   to="/project"
+                  activeClassName="active"
+                  className={nv.textstyle}
                 >
-                  ProjectDoc
-                </Link>
+                  Project Document
+                </NavLink>
               </li>
             </ul>
           </div>
