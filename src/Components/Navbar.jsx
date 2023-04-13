@@ -1,9 +1,10 @@
 import React from "react";
 import nv from "./navbar.module.css";
-import { NavLink } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import "./style.css";
 
 function Navbar() {
+  const location = useLocation();
   return (
     <>
       <div className={nv.maincontainer}>
@@ -14,32 +15,36 @@ function Navbar() {
           <div className={nv.menu}>
             <ul>
               <li>
-                <NavLink
-                  exact
+                <Link
                   to="/"
-                  activeClassName="active"
-                  className={nv.textstyle}
+                  className={
+                    location.pathname === "/" ? "active" : `${nv.textstyle}`
+                  }
                 >
                   StudentData
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink
+                <Link
                   to="/form"
-                  activeClassName="active"
-                  className={nv.textstyle}
+                  className={
+                    location.pathname === "/form" ? "active" : `${nv.textstyle}`
+                  }
                 >
                   Addstudent
-                </NavLink>
+                </Link>
               </li>
               <li>
-                <NavLink
+                <Link
                   to="/project"
-                  activeClassName="active"
-                  className={nv.textstyle}
+                  className={
+                    location.pathname === "/project"
+                      ? "active"
+                      : `${nv.textstyle}`
+                  }
                 >
-                  Project Document
-                </NavLink>
+                  ProjectDoc
+                </Link>
               </li>
             </ul>
           </div>

@@ -54,9 +54,7 @@
   font-size: 1.2rem;
   color: gray;
 }
-.menu > ul > li a:hover {
-  color: #5c5cff;
-}
+
 .social {
   width: 50%;
   height: inherit;

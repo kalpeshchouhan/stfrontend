@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import { BASEURL } from "../helper";
 import Reactspinner from "./Reactspinner";
+import { v4 as uuidv4 } from "uuid";
 
 const log = console.log;
 
@@ -177,34 +178,30 @@ function StudentData() {
 
           stdata.length > 0 ? (
             stdata.map((item) => (
-              <>
-                <Fragment key={item.id}>
-                  <div className={dt.listd}>
-                    <div>
-                      <p>{item.ragistrationno}</p>
-                    </div>
-                    <div>
-                      <p>{item.name}</p>
-                    </div>
-                    <div>
-                      <p>{item.rollno}</p>
-                    </div>
-                    <div>
-                      <p>{item.classes}</p>
-                    </div>
-                    <div>
-                      <button
-                        onClick={() => {
-                          onOpenModal(true);
-                          setregno(item.ragistrationno);
-                        }}
-                      >
-                        View
-                      </button>
-                    </div>
-                  </div>
-                </Fragment>
-              </>
+              <div className={dt.listd} key={item.id ? item.id : uuidv4()}>
+                <div>
+                  <p>{item.ragistrationno}</p>
+                </div>
+                <div>
+                  <p>{item.name}</p>
+                </div>
+                <div>
+                  <p>{item.rollno}</p>
+                </div>
+                <div>
+                  <p>{item.classes}</p>
+                </div>
+                <div>
+                  <button
+                    onClick={() => {
+                      onOpenModal(true);
+                      setregno(item.ragistrationno);
+                    }}
+                  >
+                    View
+                  </button>
+                </div>
+              </div>
             ))
           ) : (
             <p
@@ -227,112 +224,113 @@ function StudentData() {
           >
             {listdata.map((item) => (
               <>
-                <Fragment key={item.id}>
-                  <div className={dt.modalmaincontainer}>
-                    <div className={dt.insidedivone}>
-                      <div>
-                        <p>Student-Details</p>
-                        {/* <button onClick={() => onCloseModal(false)}>X</button> */}
-                      </div>
+                <div
+                  className={dt.modalmaincontainer}
+                  key={item.id ? item.id : uuidv4()}
+                >
+                  <div className={dt.insidedivone}>
+                    <div>
+                      <p>Student-Details</p>
+                      {/* <button onClick={() => onCloseModal(false)}>X</button> */}
                     </div>
-                    <div className={dt.insidedivtwo}>
+                  </div>
+                  <div className={dt.insidedivtwo}>
+                    <div>
                       <div>
-                        <div>
-                          <p>
-                            Student Name: <span> {item.name}</span>
-                          </p>
-                          <p>
-                            Student Roll No: <span> {item.rollno}</span>
-                          </p>
-                          <p>
-                            Student Class: <span> {item.classes}</span>
-                          </p>
-                          <p>
-                            {" "}
-                            Ragistration No: <span>{item.ragistrationno}</span>
-                          </p>
-                          <p>Address</p>
-                          {item.address.map((items, index) => (
+                        <p>
+                          Student Name: <span> {item.name}</span>
+                        </p>
+                        <p>
+                          Student Roll No: <span> {item.rollno}</span>
+                        </p>
+                        <p>
+                          Student Class: <span> {item.classes}</span>
+                        </p>
+                        <p>
+                          {" "}
+                          Ragistration No: <span>{item.ragistrationno}</span>
+                        </p>
+                        <p>Address</p>
+                        {item.address.map((items) => {
+                          return (
                             <>
-                              <React.Fragment key={index}>
-                                <p>
-                                  Street: <span> {items.street}</span>
-                                </p>
-                                <p>
-                                  City: <span> {items.city}</span>
-                                </p>
-                                <p>
-                                  State: <span> {items.state}</span>
-                                </p>
-                                <p>
-                                  Zip Code: <span> {items.zip}</span>
-                                </p>
-                              </React.Fragment>
+                              <p>
+                                Street: <span> {items.street}</span>
+                              </p>
+                              <p>
+                                City: <span> {items.city}</span>
+                              </p>
+                              <p>
+                                State: <span> {items.state}</span>
+                              </p>
+                              <p>
+                                Zip Code: <span> {items.zip}</span>
+                              </p>
                             </>
-                          ))}
-                        </div>
-                        <div>
-                          <p>
-                            Father Name: <span>{item.fathername}</span>
-                          </p>
-                          <p>
-                            mother Name: <span>{item.mothername}</span>
-                          </p>
-                          <p>
-                            Father Phone No: <span>{item.fatherphoneno}</span>
-                          </p>
-                          <p>
-                            Mother Phone No: <span>{item.motherphoneno}</span>
-                          </p>
-                        </div>
+                          );
+                        })}
                       </div>
-                    </div>
-                    <div className={dt.insidedivthree}>
                       <div>
-                        <button
-                          onClick={() => {
-                            navigate("/update", {
-                              state: { data: item.ragistrationno },
-                            });
-                          }}
-                        >
-                          Update
-                        </button>
-                        <button
-                          onClick={() => {
-                            onOpenModaltwo(true);
-                          }}
-                        >
-                          Delete
-                        </button>
+                        <p>
+                          Father Name: <span>{item.fathername}</span>
+                        </p>
+                        <p>
+                          mother Name: <span>{item.mothername}</span>
+                        </p>
+                        <p>
+                          Father Phone No: <span>{item.fatherphoneno}</span>
+                        </p>
+                        <p>
+                          Mother Phone No: <span>{item.motherphoneno}</span>
+                        </p>
                       </div>
                     </div>
                   </div>
-                  {/* -----------------------Modal two loading---------------------------------------------------- */}
-                  <Modal open={opentwo} onClose={onCloseModaltwo} center>
-                    <p className={dt.paragrahp}>
-                      Your Sure You Want To Delete The Data....
-                    </p>
-                    <div className={dt.btndiv}>
+                  <div className={dt.insidedivthree}>
+                    <div>
                       <button
                         onClick={() => {
-                          onCloseModaltwo(false);
-                          onCloseModal(false);
-                          setdelectdata(item.ragistrationno);
+                          navigate("/update", {
+                            state: { data: item.ragistrationno },
+                          });
+                        }}
+                      >
+                        Update
+                      </button>
+                      <button
+                        onClick={() => {
+                          onOpenModaltwo(true);
                         }}
                       >
                         Delete
                       </button>
-                      <button
-                        onClick={() => {
-                          onCloseModaltwo(false);
-                        }}
-                      >
-                        Cancle
-                      </button>
                     </div>
-                  </Modal>
-                </Fragment>
+                  </div>
+                </div>
+                {/* -----------------------Modal two loading---------------------------------------------------- */}
+                <Modal open={opentwo} onClose={onCloseModaltwo} center>
+                  <p className={dt.paragrahp}>
+                    Your Sure You Want To Delete The Data....
+                  </p>
+                  <div className={dt.btndiv}>
+                    <button
+                      onClick={() => {
+                        onCloseModaltwo(false);
+                        onCloseModal(false);
+                        setdelectdata(item.ragistrationno);
+                      }}
+                    >
+                      Delete
+                    </button>
+                    <button
+                      onClick={() => {
+                        onCloseModaltwo(false);
+                      }}
+                    >
+                      Cancle
+                    </button>
+                  </div>
+                </Modal>
               </>
             ))}
           </Modal>

@@ -4,7 +4,7 @@ import sp from "./reactspinner.module.css";
 const Reactspinner = () => {
   return (
     <>
-      <div class={sp.spinner}></div>
+      <div className={sp.spinner}></div>
     </>
   );
 };

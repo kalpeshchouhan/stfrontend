@@ -71,7 +71,7 @@ const Projectdocument = () => {
             <br />
             4. Ragistration length should be greatter then 5.
             <br />
-            5. Mobile no validation Name validation like spacial char is not
+            5. Mobile no validation Name validation like spacial char is -
             allowed and length validation Number no allowed or etc..
           </p>
           <br />
